@@ -66,6 +66,21 @@ services:
       - monitor-net
     labels:
       org.label-schema.group: "monitoring"
+  
+  natsexporter:
+    image: happy-nats-exporter:test
+    container_name: natsexporter
+    user: root
+    privileged: true
+    restart: unless-stopped
+    expose:
+      - 7777
+    ports:
+      - "7777:7777"
+    networks:
+      - monitor-net
+    labels:
+      org.label-schema.group: "monitoring"
 
   cadvisor:
     image: google/cadvisor:v0.28.2
