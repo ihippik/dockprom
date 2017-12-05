@@ -30,6 +30,14 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
+  - job_name:       'natsexplorer'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['natsexporter:7777']
+        labels:
+          group: 'production'
+
+
 alerting:
   alertmanagers:
   - scheme: http
