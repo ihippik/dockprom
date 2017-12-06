@@ -68,7 +68,7 @@ services:
       org.label-schema.group: "monitoring"
   
   natsexporter:
-    image: happy-nats-exporter:test
+    image: prometheus_nats_exporter:test
     container_name: natsexporter
     user: root
     privileged: true
