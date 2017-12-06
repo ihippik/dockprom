@@ -68,15 +68,15 @@ services:
       org.label-schema.group: "monitoring"
   
   natsexporter:
-    image: prometheus_nats_exporter:test
+    image: ihippik/prometheus_nats_exporter
     container_name: natsexporter
     user: root
     privileged: true
     restart: unless-stopped
     expose:
       - 7777
-    ports:
-      - "7777:7777"
+    environment:
+      - NATS_MONITORING_HOST=http://localhost:8222
     networks:
       - monitor-net
     labels:
